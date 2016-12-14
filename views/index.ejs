@@ -13,6 +13,7 @@
     var myObstacles = [];
     var myScore;
     var finalScore = 0;
+    var gameEnded = false;
 
     function startGame() {
         myGamePiece = new component(20, 20, "yellow", 100, 120);
@@ -85,7 +86,9 @@
                 crash = false;
             }
             if(crash){
-              endGame();
+              if(gameEnded!=true){
+                endGame();
+              }
             }
             return crash;
         }
@@ -93,10 +96,20 @@
 
     function endGame() {
       //do things when the game ends
+      //get the final score
       if(finalScore < 1){
         finalScore = myGameArea.frameNo;
-        console.log(finalScore);
       }
+      var username = prompt("Please enter your name to record your score", "Anon");
+
+      if (username != null) {
+        //now we have a valid username and password, do something to record the data
+        console.log(finalScore + username);
+      }
+      else {
+        alert("Error: Invalid username. Score not recorded.");
+      }
+      gameEnded = true;
     }
 
     function updateGameArea() {
@@ -145,14 +158,7 @@
 
 
     <div class = submitHighScore>
-      Name:
-      <input type="text" id="input1" />
-      <button onclick="getUsername()">Submit High-Score</button>
-      <script type="text/javascript">
-       function getUsername(){
-          var username=document.getElementById('input1').value;
-       }
-       </script>
+
     </div>
 
  </body>
