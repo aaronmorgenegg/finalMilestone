@@ -101,10 +101,11 @@
         finalScore = myGameArea.frameNo;
       }
       var username = prompt("Please enter your name to record your score", "Anon");
+      console.log(username);
 
       if (username != null) {
-        //now we have a valid username and password, do something to record the data
-        console.log(finalScore + username);
+        //TODO:now we have a valid username and password, do something to record the data
+        <%service.insertToDatabase(username, finalScore);%>
       }
       else {
         alert("Error: Invalid username. Score not recorded.");
@@ -152,14 +153,25 @@
     }
     </script>
     <br>
-    <button class = gameButton onmousedown="accelerate(-0.15)" onmouseup="accelerate(0.10)">JUMP</button>
-    <button class = gameButton onmousedown="window.location.reload()" >RESTART</button>
+    <div class = gameButtonWrapper>
+        <button class = gameButton onmousedown="accelerate(-0.15)" onmouseup="accelerate(0.10)">JUMP</button>
+        <button class = gameButton onmousedown="window.location.reload()" >RESTART</button>
+    </div>
     <p class = gameDescription>Avoid crashing into walls by tapping the jump button. Survive as long as you can and try to beat the high scores!</p>
 
 
     <div class = submitHighScore>
 
     </div>
+
+    <h2 class = highScoreTitle>~High Scores~</h2>
+<ul class = highScoreList>
+    <% users.forEach(function(user) { %>
+        <p class = highScoreListItem> <%= user.name %></p>
+        <p class = highScoreListItem style = "float:right;"> <%= user.score %></p>
+        <br></br>
+    <% }); %>
+</ul>
 
  </body>
 </html>
