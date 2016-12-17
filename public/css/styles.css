@@ -24,28 +24,51 @@ ul {
 
 body {
   background: #C9C9C9;
+  margin:auto;
+  margin-left: auto;
+  width: 80%;
 }
 
 canvas {
-  margin-left: 70px;
   margin-top: 35px;
+  width: 800px;
   border: 2px solid #A1A1A1;
   background-color: #1C7BBE;
 }
 
+.gameButtonWrapper{
+  width: 800px;
+}
+
 .gameButton {
-  margin-left: 72px;
-  width: 363px;
+  float: none;
+  margin-left: 10px;
+  width: 380px;
   height: 80px;
 }
 
 .gameDescription {
-  margin-left: 60px;
   margin-top: 10px;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .submitHighScore {
   margin-top: 50px;
-  margin-left: 70px;
+}
+
+.highScoreTitle {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: larger;
+  width: 800px;
+  margin: inherit;
+}
+
+.highScoreList {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: large;
+  width: 800px;
+}
+
+.highScoreListItem {
+  display: inline;
 }
